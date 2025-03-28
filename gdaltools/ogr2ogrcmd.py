@@ -241,10 +241,21 @@ class Ogr2ogr(Wrapper):
     @config_options.setter
     def config_options(self, options):
         self._config_options = options
+    
+    def _is_csv_input(self):
+        return isinstance(self.in_ds, FileConnectionString) and self.in_ds.encode().lower().endswith('.csv')
 
+    def _configure_csv_input(self, args):
+        args.extend(['-oo', 'X_POSSIBLE_NAMES=lon*'])
+        args.extend(['-oo', 'Y_POSSIBLE_NAMES=lat*'])
+    
     def execute(self):
         args = [self._get_command()]
         config_options = self.config_options
+
+        if self._is_csv_input():
+            logging.debug("CSV input detected, setting X_POSSIBLE_NAMES and Y_POSSIBLE_NAMES.")
+            self._configure_csv_input(args)
         
         if self.data_source_mode == self.MODE_DS_UPDATE:
             args.extend(["-update"])
