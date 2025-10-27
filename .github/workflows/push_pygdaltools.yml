@@ -80,7 +80,7 @@ jobs:
                 CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
                   --profile=codeartifact \
                   --domain ${{ secrets.AWS_DOMAIN }} \
-                  --domain-owner ${{ secrets.AWS_OWNER_CR}} \
+                  --domain-owner ${{ secrets.AWS_OWNER }} \
                   --region eu-west-3 \
                   --query authorizationToken \
                   --output text)
