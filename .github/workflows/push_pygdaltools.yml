@@ -1,4 +1,4 @@
-name: pygdaltools -Build and Push
+name: pygdaltools - Build and Push
 
 on:
     workflow_dispatch:

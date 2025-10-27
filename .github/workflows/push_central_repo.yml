@@ -1,4 +1,4 @@
-name: pygdaltools -Build and Push Central Repository
+name: pygdaltools - Build and Push Central Repository
 
 on:
     workflow_dispatch:
