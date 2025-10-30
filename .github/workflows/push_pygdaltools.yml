@@ -89,7 +89,7 @@ jobs:
 
             - name: Login to AWS CodeArtifact
               run: |
-                    aws codeartifact login --tool twine --repository pygdaltools --domain  ${{ secrets.AWS_DOMAIN }} --domain-owner ${{ secrets.AWS_OWNER }} --region eu-west-3 --profile codeartifact
+                    aws codeartifact login --tool twine --repository eop --domain  ${{ secrets.AWS_DOMAIN }} --domain-owner ${{ secrets.AWS_OWNER }} --region eu-west-3 --profile codeartifact
 
             - name: Push pygdaltools
               run: |
